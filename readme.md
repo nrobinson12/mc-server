@@ -1,4 +1,4 @@
-# Starting a fresh VPS with OVHcloud
+# Starting Fresh VPS with OVHcloud
 
 ## First Steps
 
@@ -195,7 +195,7 @@ enforce-whitelist=true
 spawn-protection=0 # anyone can build in spawn
 ```
 
-Can add a `server-icon.png` into the base `paper` folder to change the icon that shows up for the server. This icon needs to be 64 x 64 pixels.
+You can add a `server-icon.png` into the base `paper` folder to change the icon that shows up for the server. This icon needs to be 64 x 64 pixels.
 
 In server
 
@@ -215,27 +215,28 @@ entity-tracking-range:
     other: 144
 ```
 
-## Transferring Vanilla <-> Paper Worlds
+## Transferring Vanilla -> Paper World
 
--   put `DIM-1` into it's own folder `world_nether`
--   put `DIM1` into it's own folder `world_the_end`
--   make general overworld folder with remaining files `world`
--   tar that baby
+-   Put `DIM-1` into it's own folder `world_nether`
+-   Put `DIM1` into it's own folder `world_the_end`
+-   Make general overworld folder with remaining files `world`
+-   Then tar it:
 
     ```sh
     tar --mode="a+rw" -cf world.tar -C world .
     gzip -fq world.tar
-    ./local2mc.sh world.tar.gz
+    rsync -raz -e 'ssh -p <port>' /local/path/to/world.tar.gz ubuntu@<vps-ip>:/home/ubuntu/world.tar.gz
     ```
 
--   in user root mc server
+-   Now the world should be in your server, just move it to the base `paper` folder (as root user):
 
     ```sh
-    mv /home/nickmc/world.tar.gz /home/minecraft/paper/world.tar.gz
+    mv /home/ubuntu/world.tar.gz /home/minecraft/world.tar.gz
     ```
 
--   in user minecraft mc server paper folder
--   stop server first! (`screen -r`, `stop`, ctrl+d)
+-   Unzip the world and remove the zipped file (as minecraft user):
+
+    Make sure to stop the server first: `screen -r`, `stop`, ctrl + d
 
     ```sh
     tar -xf world.tar.gz
