@@ -1,3 +1,9 @@
+# Setup a Minecraft Paper Server
+
+I am jotting down my notes as I setup a new minecraft server from scratch. I've chosen to use OVHcloud as the hosting server, and it provides you with a virtual private server that you can start with a fresh install of ubuntu.
+
+I will be going over how to setup your fresh linux server, with security tips and any errors I ran into. Then I'll be explaining how to setup the minecraft server using paper.
+
 # Starting Fresh VPS with OVHcloud
 
 ## First Steps
