@@ -28,7 +28,7 @@ MONTHLY=false
 # How many revisions to retain (0 for infinite)
 RETAINHOURS=24
 RETAINDAYS=7
-RETAINWEEKS=5
+RETAINWEEKS=4
 RETAINMONTHS=12
 
 # Name of Minecraft screen session

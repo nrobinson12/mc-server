@@ -252,6 +252,6 @@ entity-tracking-range:
 ## Backing Up Server
 
 ```sh
-tar --exclude='world' --exclude='world_nether' --exclude='world_the_end' --exclude='backups' --mode="a+rw" -cf /home/ubuntu/serverbackup.tar -C /home/minecraft/ paper 2>&1
-gzip -fq /home/ubuntu/serverbackup.tar 2>&1
+tar --exclude='world' --exclude='world_nether' --exclude='world_the_end' --exclude='backups' --mode="a+rw" -cf /home/ubuntu/Server.tar -C /home/minecraft/ paper/ 2>&1
+gzip -fq /home/ubuntu/Server.tar 2>&1
 ```
